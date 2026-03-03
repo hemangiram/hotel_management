@@ -130,7 +130,7 @@ hotel_management/
 
 
 Clone repository:
-git clone 
+git clone git@github.com:hemangiram/hotel_management.git
 cd hotel_management
 
 
