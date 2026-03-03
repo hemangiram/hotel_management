@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Room Details</h2>
+
+{% if room.image %}
+<img src="{{ room.image.url }}" width="400">
+{% endif %}
+
+<p><strong>Room Number:</strong> {{ room.room_number }}</p>
+<p><strong>Type:</strong> {{ room.room_type }}</p>
+<p><strong>Price:</strong> ₹{{ room.price }}</p>
+<p><strong>Description:</strong> {{ room.description }}</p>
+<p><strong>Status:</strong> 
+    {% if room.is_available %}
+        Available
+    {% else %}
+        Not Available
+    {% endif %}
+</p>
+
+<a href="{% url 'room_list' %}" class="btn btn-secondary">Back</a>
+
+{% endblock %}

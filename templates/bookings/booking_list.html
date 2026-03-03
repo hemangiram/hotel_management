@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>All Bookings</h2>
+
+<table class="table">
+    <tr>
+        <th>User</th>
+        <th>Room</th>
+        <th>Dates</th>
+        <th>Total</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+
+    {% for booking in bookings %}
+    <tr>
+        <td>{{ booking.user.username }}</td>
+        <td>{{ booking.room.room_number }}</td>
+        <td>{{ booking.check_in }} - {{ booking.check_out }}</td>
+        <td>₹{{ booking.total_price }}</td>
+        <td>{{ booking.status }}</td>
+        <td>
+            {% if booking.status == 'Pending' %}
+            <a href="{% url 'confirm_booking' booking.id %}" class="btn btn-success btn-sm">Confirm</a>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
